@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มาคุยกันคั้บบ</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 20px; 
+            background-color: #FFCCCC; 
+        }
+        #chatbox { 
+            width: 90%; 
+            max-width: 600px; 
+            height: 400px; 
+            border: 1px solid #ccc; 
+            overflow-y: auto; 
+            margin: 0 auto 10px; 
+            padding: 10px; 
+        }
+        #message { 
+            width: 80%; 
+            padding: 10px; 
+        }
+        #send { 
+            padding: 10px; 
+        }
+        .subtitle {
+            font-size: 50%; 
+        }
+    </style>
+</head>
+<body>
+    <h1>มาคุยกันคั้บบ</h1>
+    <div class="subtitle">ไม่ระบุชื่อ (chynx._)</div>
+    <div id="chatbox"></div>
+    <input type="text" id="message" placeholder="พิมพ์ข้อความของคุณ...">
+    <button id="send">ส่ง</button>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const message = document.getElementById('message');
+        const send = document.getElementById('send');
+
+        send.addEventListener('click', () => {
+            const text = message.value.trim();
+            if (text) {
+                const newMessage = document.createElement('p');
+                newMessage.textContent = text;
+                chatbox.appendChild(newMessage);
+                message.value = '';
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
